@@ -466,11 +466,17 @@ body {
 /* Footer */
 .footer-v2 { padding: 80px 0 30px; background: var(--secondary); color: var(--white); }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 50px; }
-.footer-brand .logo { margin-bottom: 20px; }
+.footer-brand .logo { margin-bottom: 15px; }
 .footer-brand .logo-text { color: var(--white); }
-.footer-brand > p { color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 20px; }
-.footer-license { margin-bottom: 20px; }
-.footer-license p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 5px; }
+.footer-tagline { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 15px; }
+.footer-license { margin-bottom: 12px; }
+.footer-license p { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+.footer-address { margin-bottom: 10px; }
+.footer-address p { color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: flex-start; gap: 8px; }
+.footer-hours { margin-bottom: 10px; }
+.footer-hours p { color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+.footer-areas-served { margin-bottom: 20px; }
+.footer-areas-served p { color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
 .social-links { display: flex; gap: 10px; }
 .social-links a {
     width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%;
@@ -486,8 +492,10 @@ body {
 .footer-links a:hover, .footer-contact a:hover { color: var(--primary); }
 .footer-contact p { color: rgba(255,255,255,0.7); font-size: 0.9rem; display: flex; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
 .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); }
-.footer-bottom p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
-.footer-bottom a { color: var(--primary); text-decoration: none; }
+.footer-bottom p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 10px; }
+.footer-bottom-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.footer-bottom-links a { color: rgba(255,255,255,0.6); font-size: 0.8rem; text-decoration: none; transition: var(--transition); }
+.footer-bottom-links a:hover { color: var(--primary); }
 
 /* WhatsApp Popup */
 .whatsapp-popup {
