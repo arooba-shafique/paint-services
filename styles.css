@@ -366,7 +366,7 @@ body {
 
 /* Areas */
 .areas-section { padding: 100px 0; background: var(--bg-light); }
-.areas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px; }
+.areas-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; margin-bottom: 30px; }
 .area-item {
     background: var(--white); padding: 15px; border-radius: 10px;
     text-align: center; font-weight: 500; border: 1px solid #eee;
