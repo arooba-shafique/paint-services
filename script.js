@@ -95,18 +95,29 @@ document.querySelectorAll('.faq-question').forEach(question => {
 const whatsappPopup = document.getElementById('whatsappPopup');
 const popupOverlay = document.getElementById('popupOverlay');
 const popupClose = document.getElementById('popupClose');
-setTimeout(() => { if (whatsappPopup) whatsappPopup.classList.add('active'); }, 3000);
-const closePopup = () => whatsappPopup.classList.remove('active');
+const exitPopup = document.getElementById('exitPopup');
+let popupShown = false;
+
+setTimeout(() => {
+    if (whatsappPopup && !popupShown) {
+        whatsappPopup.classList.add('active');
+        popupShown = true;
+    }
+}, 3000);
+
+const closePopup = () => {
+    if (whatsappPopup) whatsappPopup.classList.remove('active');
+};
 if (popupOverlay) popupOverlay.addEventListener('click', closePopup);
 if (popupClose) popupClose.addEventListener('click', closePopup);
 
-// Exit Intent Popup
-const exitPopup = document.getElementById('exitPopup');
+// Exit Intent Popup (only if WhatsApp popup not shown)
 const exitOverlay = document.getElementById('exitOverlay');
 const exitClose = document.getElementById('exitClose');
 let exitShown = false;
+
 document.addEventListener('mouseout', (e) => {
-    if (e.clientY < 0 && !exitShown) {
+    if (e.clientY < 0 && !exitShown && !popupShown) {
         exitPopup.classList.add('active');
         exitShown = true;
     }
@@ -149,8 +160,8 @@ if (quoteForm) {
 // Keyboard Navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        closePopup();
-        exitPopup.classList.remove('active');
+        if (whatsappPopup) whatsappPopup.classList.remove('active');
+        if (exitPopup) exitPopup.classList.remove('active');
     }
 });
 
