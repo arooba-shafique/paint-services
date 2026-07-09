@@ -722,21 +722,23 @@
                 <div class="contact-form">
                     <h3>Request a Free Quote</h3>
                     <form id="quoteForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" name="name" placeholder="Full Name *" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" name="phone" placeholder="Phone Number (WhatsApp) *" required>
-                            </div>
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" name="name" placeholder="Enter your full name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Email Address">
+                            <label>Phone Number (WhatsApp preferred) *</label>
+                            <input type="tel" name="phone" placeholder="+971 XX XXX XXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" name="email" placeholder="Enter your email address">
                         </div>
                         <div class="form-row">
                             <div class="form-group">
+                                <label>Property Type *</label>
                                 <select name="property-type" required>
-                                    <option value="">Property Type *</option>
+                                    <option value="">Select Property Type</option>
                                     <option value="apartment">Apartment</option>
                                     <option value="villa">Villa</option>
                                     <option value="office">Office</option>
@@ -744,8 +746,9 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label>Property Location/Area *</label>
                                 <select name="location" required>
-                                    <option value="">Property Location *</option>
+                                    <option value="">Select Location</option>
                                     <option value="dubai-marina">Dubai Marina</option>
                                     <option value="downtown">Downtown Dubai</option>
                                     <option value="jlt">JLT</option>
@@ -758,37 +761,46 @@
                                     <option value="jbr">JBR</option>
                                     <option value="al-barsha">Al Barsha</option>
                                     <option value="deira">Deira</option>
-                                    <option value="other">Other Dubai Area</option>
+                                    <option value="mirdif">Mirdif</option>
+                                    <option value="silicon-oasis">Silicon Oasis</option>
+                                    <option value="discovery-gardens">Discovery Gardens</option>
+                                    <option value="dubai-creek">Dubai Creek</option>
+                                    <option value="emirates-hills">Emirates Hills</option>
+                                    <option value="al-quoz">Al Quoz</option>
+                                    <option value="international-city">International City</option>
+                                    <option value="damac-hills">DAMAC Hills</option>
+                                    <option value="town-square">Town Square</option>
                                     <option value="sharjah">Sharjah</option>
                                     <option value="ajman">Ajman</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" name="size" placeholder="Property Size (Approx. sq.ft)">
-                            </div>
-                            <div class="form-group">
-                                <select name="service" required>
-                                    <option value="">Service Required *</option>
-                                    <option value="interior">Interior Painting</option>
-                                    <option value="exterior">Exterior Painting</option>
-                                    <option value="both">Both Interior & Exterior</option>
-                                    <option value="waterproofing">Waterproofing</option>
-                                    <option value="texture">Texture/Decorative</option>
-                                    <option value="wood">Wood Polishing</option>
                                     <option value="other">Other</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="date" name="preferred-date" placeholder="Preferred Date for Inspection">
+                            <label>Property Size (Approx. sq.ft)</label>
+                            <input type="text" name="size" placeholder="e.g., 1500 sq.ft">
                         </div>
                         <div class="form-group">
-                            <textarea name="notes" placeholder="Additional Notes" rows="3"></textarea>
+                            <label>Service Required *</label>
+                            <select name="service" required>
+                                <option value="">Select Service</option>
+                                <option value="interior">Interior Painting</option>
+                                <option value="exterior">Exterior Painting</option>
+                                <option value="both">Both Interior & Exterior</option>
+                                <option value="waterproofing">Waterproofing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date for Inspection</label>
+                            <input type="date" name="preferred-date">
+                        </div>
+                        <div class="form-group">
+                            <label>Additional Notes</label>
+                            <textarea name="notes" placeholder="Tell us about your project..." rows="3"></textarea>
                         </div>
                         <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i> Get My Free Quote Now
+                            Get My Free Quote Now <i class="fas fa-arrow-right"></i>
                         </button>
                     </form>
                     <div class="form-alt">
