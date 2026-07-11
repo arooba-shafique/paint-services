@@ -5,16 +5,16 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-    --primary: #1E3A5F;
-    --primary-dark: #152C4A;
-    --secondary: #1E3A5F;
-    --accent: #C8960C;
-    --accent-light: #E8B84B;
+    --primary: #FF6B35;
+    --primary-dark: #E55A2B;
+    --secondary: #1a1a2e;
+    --accent: #F59E0B;
+    --accent-light: #FCD34D;
     --whatsapp: #25D366;
-    --gradient-1: linear-gradient(135deg, #1E3A5F 0%, #0D2240 100%);
-    --gradient-2: linear-gradient(135deg, #C8960C 0%, #E8B84B 100%);
-    --gradient-3: linear-gradient(135deg, #1E3A5F 0%, #C8960C 100%);
-    --gradient-4: linear-gradient(135deg, #D94F2B 0%, #C8960C 100%);
+    --gradient-1: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+    --gradient-2: linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%);
+    --gradient-3: linear-gradient(135deg, #FF6B35 0%, #F59E0B 100%);
+    --gradient-4: linear-gradient(135deg, #E55A2B 0%, #FF6B35 100%);
     --text-primary: #1a1a2e;
     --text-secondary: #6c757d;
     --bg-light: #f8f9fa;
@@ -136,7 +136,7 @@ body {
 /* Hero */
 .hero-v2 {
     min-height: 100vh; display: flex; align-items: center; position: relative;
-    overflow: hidden; background: linear-gradient(135deg, #1E3A5F 0%, #0D2240 60%, #1A3558 100%); padding: 120px 0 80px;
+    overflow: hidden; background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 60%, #F59E0B 100%); padding: 120px 0 80px;
 }
 .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 .gradient-orb {
