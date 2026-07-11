@@ -98,12 +98,14 @@ const popupClose = document.getElementById('popupClose');
 const exitPopup = document.getElementById('exitPopup');
 let popupShown = false;
 
-setTimeout(() => {
-    if (whatsappPopup && !popupShown) {
-        whatsappPopup.classList.add('active');
-        popupShown = true;
-    }
-}, 3000);
+if (whatsappPopup) {
+    setTimeout(() => {
+        if (!popupShown) {
+            whatsappPopup.classList.add('active');
+            popupShown = true;
+        }
+    }, 3000);
+}
 
 const closePopup = () => {
     if (whatsappPopup) whatsappPopup.classList.remove('active');
@@ -111,17 +113,29 @@ const closePopup = () => {
 if (popupOverlay) popupOverlay.addEventListener('click', closePopup);
 if (popupClose) popupClose.addEventListener('click', closePopup);
 
-// Exit Intent Popup (only if WhatsApp popup not shown)
+// Exit Intent Popup
 const exitOverlay = document.getElementById('exitOverlay');
 const exitClose = document.getElementById('exitClose');
 let exitShown = false;
 
-document.addEventListener('mouseout', (e) => {
-    if (e.clientY < 0 && !exitShown && !popupShown) {
+const showExitPopup = () => {
+    if (exitPopup && !exitShown && !popupShown) {
         exitPopup.classList.add('active');
         exitShown = true;
     }
+};
+
+// Desktop: mouse leaves viewport from top
+document.addEventListener('mouseout', (e) => {
+    if (e.clientY < 0) showExitPopup();
 });
+
+// Mobile: show after scrolling 50% of page
+window.addEventListener('scroll', () => {
+    const scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+    if (scrollPercent > 0.5) showExitPopup();
+});
+
 if (exitOverlay) exitOverlay.addEventListener('click', () => exitPopup.classList.remove('active'));
 if (exitClose) exitClose.addEventListener('click', () => exitPopup.classList.remove('active'));
 
