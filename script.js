@@ -171,5 +171,5 @@ if (copyrightYear) {
     copyrightYear.innerHTML = copyrightYear.innerHTML.replace('2024', new Date().getFullYear());
 }
 
-console.log('%c🎨 Dubai Paint Services', 'font-size: 24px; font-weight: bold; color: #FF6B35;');
+console.log('%c🎨 Dubai Paint Services', 'font-size: 24px; font-weight: bold; color: #1E3A5F;');
 console.log('%cDubai\'s Most Trusted Painting Service', 'font-size: 14px; color: #666;');
