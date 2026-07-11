@@ -7,18 +7,6 @@ window.addEventListener('load', () => {
     setTimeout(() => document.querySelector('.preloader').classList.add('hidden'), 1500);
 });
 
-// Custom Cursor
-const cursor = document.querySelector('.cursor-follower');
-document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    cursor.classList.add('visible');
-});
-document.querySelectorAll('a, button, .service-item').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-});
-
 // Navbar Scroll
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
