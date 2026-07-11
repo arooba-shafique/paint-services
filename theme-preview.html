@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Preview - Choose Your Color Scheme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --secondary: #1a1a2e;
+            --accent: #F59E0B;
+            --accent-light: #FCD34D;
+            --whatsapp: #25D366;
+            --gradient-1: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+            --gradient-2: linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%);
+            --gradient-3: linear-gradient(135deg, #FF6B35 0%, #F59E0B 100%);
+            --gradient-4: linear-gradient(135deg, #E55A2B 0%, #FF6B35 100%);
+            --text-primary: #1a1a2e;
+            --text-secondary: #6c757d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+            --shadow-md: 0 10px 40px rgba(0,0,0,0.12);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f0f0f0; }
+
+        /* Theme Switcher Toolbar */
+        .theme-toolbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+            background: #1a1a2e; padding: 12px 20px;
+            display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .theme-toolbar label { color: #fff; font-weight: 600; font-size: 14px; white-space: nowrap; }
+        .theme-btn {
+            padding: 8px 16px; border: 2px solid transparent; border-radius: 8px;
+            cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .theme-btn:hover { transform: translateY(-2px); }
+        .theme-btn.active { border-color: #fff; box-shadow: 0 0 12px rgba(255,255,255,0.3); }
+        .theme-btn .dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.5); }
+        .theme-btn[data-theme="a"] { background: #1E3A5F; color: #fff; }
+        .theme-btn[data-theme="a"] .dot { background: #F59E0B; }
+        .theme-btn[data-theme="b"] { background: #059669; color: #fff; }
+        .theme-btn[data-theme="b"] .dot { background: #A7F3D0; }
+        .theme-btn[data-theme="c"] { background: #581C87; color: #fff; }
+        .theme-btn[data-theme="c"] .dot { background: #F59E0B; }
+        .theme-btn[data-theme="d"] { background: #0D9488; color: #fff; }
+        .theme-btn[data-theme="d"] .dot { background: #F97316; }
+        .theme-btn[data-theme="e"] { background: #B91C1C; color: #fff; }
+        .theme-btn[data-theme="e"] .dot { background: #F59E0B; }
+        .apply-btn {
+            margin-left: auto; padding: 10px 24px; background: #25D366; color: #fff;
+            border: none; border-radius: 8px; font-weight: 700; font-size: 14px;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .apply-btn:hover { background: #1DA851; transform: translateY(-2px); }
+
+        /* Site Preview Container */
+        .preview-frame {
+            margin-top: 70px; background: #fff; max-width: 1400px; margin-left: auto; margin-right: auto;
+            box-shadow: 0 0 60px rgba(0,0,0,0.15); min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar { background: var(--white); padding: 15px 0; box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-icon { width: 40px; height: 40px; background: var(--gradient-1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--text-primary); }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text-primary); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-glow { background: var(--gradient-1); color: #fff; padding: 10px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: all 0.3s; }
+        .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+
+        /* Hero */
+        .hero-v2 {
+            min-height: 80vh; display: flex; align-items: center; position: relative;
+            overflow: hidden; background: var(--gradient-1); padding: 100px 0 60px; color: #fff;
+        }
+        .hero-content-v2 { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 8px 20px; border-radius: 50px; font-size: 13px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.2); }
+        .hero-title { font-family: 'Playfair Display', serif; font-size: 52px; line-height: 1.1; margin-bottom: 16px; }
+        .hero-title .line-1 { display: block; font-size: 24px; font-weight: 400; opacity: 0.9; }
+        .gradient-text { background: var(--gradient-2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 30px; max-width: 600px; line-height: 1.6; }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 30px; }
+        .btn-primary-v2 { background: var(--white); color: var(--primary); padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; transition: all 0.3s; }
+        .btn-primary-v2:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .btn-whatsapp-v2 { background: var(--whatsapp); color: #fff; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; transition: all 0.3s; }
+        .btn-whatsapp-v2:hover { transform: translateY(-2px); background: #1DA851; }
+        .btn-outline-v2 { background: transparent; color: #fff; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s; }
+        .btn-outline-v2:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+        .trust-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
+        .badge { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid rgba(255,255,255,0.15); }
+        .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-number { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; display: block; }
+        .stat-label { font-size: 13px; opacity: 0.8; }
+
+        /* Services */
+        .services-v2 { padding: 80px 0; background: var(--bg-light); }
+        .container-v2 { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-tag { display: inline-block; background: var(--gradient-1); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--text-primary); margin-bottom: 12px; }
+        .section-header p { color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        .services-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; }
+        .service-item { background: #fff; border-radius: 16px; padding: 30px; box-shadow: var(--shadow-sm); transition: all 0.4s; border: 1px solid rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+        .service-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .service-icon-wrap { width: 56px; height: 56px; background: var(--gradient-1); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px; margin-bottom: 16px; }
+        .service-content h3 { font-size: 20px; color: var(--text-primary); margin-bottom: 10px; }
+        .service-content p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
+        .service-features { list-style: none; margin-bottom: 16px; }
+        .service-features li { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); padding: 4px 0; }
+        .service-features li i { color: var(--accent); font-size: 12px; }
+        .price-tag { background: var(--gradient-2); color: var(--text-primary); padding: 8px 16px; border-radius: 8px; font-size: 14px; display: inline-block; margin-bottom: 12px; }
+        .card-link { color: var(--primary); font-weight: 600; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
+        .card-link:hover { gap: 10px; }
+        .service-number { position: absolute; top: 20px; right: 20px; font-family: 'Playfair Display', serif; font-size: 60px; font-weight: 700; color: rgba(0,0,0,0.03); line-height: 1; }
+
+        /* Testimonials */
+        .testimonials-v2 { padding: 80px 0; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .testimonial-card { background: #fff; border-radius: 16px; padding: 30px; box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.05); }
+        .testimonial-rating { color: var(--accent); margin-bottom: 14px; }
+        .testimonial-rating i { font-size: 16px; }
+        .testimonial-text { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+        .testimonial-author { display: flex; align-items: center; gap: 12px; }
+        .author-avatar { width: 44px; height: 44px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; }
+        .author-info h4 { font-size: 15px; color: var(--text-primary); }
+        .author-info span { font-size: 13px; color: var(--text-secondary); }
+        .google-reviews { text-align: center; padding: 30px; background: var(--gradient-1); border-radius: 16px; color: #fff; }
+        .reviews-score { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+        .reviews-link { color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; }
+
+        /* Footer */
+        .footer-v2 { background: var(--secondary); color: #fff; padding: 60px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand .logo { margin-bottom: 12px; }
+        .footer-brand .logo-icon { background: var(--gradient-1); }
+        .footer-brand .logo-text { color: #fff; }
+        .footer-tagline { font-size: 14px; opacity: 0.7; margin-bottom: 12px; }
+        .footer-license, .footer-address, .footer-hours, .footer-areas-served { font-size: 13px; opacity: 0.7; margin-bottom: 6px; }
+        .social-links { display: flex; gap: 12px; margin-top: 16px; }
+        .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: all 0.3s; }
+        .social-links a:hover { background: var(--primary); }
+        .footer-links h4, .footer-contact h4 { font-size: 16px; margin-bottom: 16px; color: var(--accent); }
+        .footer-links a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.3s; }
+        .footer-links a:hover { color: #fff; }
+        .footer-contact a { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.3s; }
+        .footer-contact a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; opacity: 0.6; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 32px; }
+            .hero-stats { gap: 20px; }
+            .stat-number { font-size: 28px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .services-showcase { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Switcher Toolbar -->
+    <div class="theme-toolbar">
+        <label>Choose Theme:</label>
+        <button class="theme-btn active" data-theme="a" onclick="setTheme('a')">
+            <span class="dot"></span> A: Royal Blue + Gold
+        </button>
+        <button class="theme-btn" data-theme="b" onclick="setTheme('b')">
+            <span class="dot"></span> B: Emerald Green
+        </button>
+        <button class="theme-btn" data-theme="c" onclick="setTheme('c')">
+            <span class="dot"></span> C: Dark Purple + Gold
+        </button>
+        <button class="theme-btn" data-theme="d" onclick="setTheme('d')">
+            <span class="dot"></span> D: Teal + Orange
+        </button>
+        <button class="theme-btn" data-theme="e" onclick="setTheme('e')">
+            <span class="dot"></span> E: Deep Red + Gold
+        </button>
+        <button class="apply-btn" onclick="applyTheme()">Apply This Theme &rarr;</button>
+    </div>
+
+    <!-- Site Preview -->
+    <div class="preview-frame">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <span class="logo-icon"><i class="fas fa-paintbrush"></i></span>
+                    <span class="logo-text">YOUR BRAND</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Areas</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+                <a href="#" class="btn-glow"><i class="fas fa-phone"></i> Call Now</a>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <section class="hero-v2">
+            <div class="hero-content-v2">
+                <div class="hero-badge">
+                    <i class="fas fa-award"></i> Dubai Municipality Approved | Licensed & Insured
+                </div>
+                <h1 class="hero-title">
+                    <span class="line-1">Dubai's Most Trusted</span>
+                    <span class="line-2"><span class="gradient-text">Painting Service</span></span>
+                </h1>
+                <p class="hero-subtitle">
+                    Villa, Apartment & Office Painting Specialists | Free Quote in 30 Minutes | 10-Year Warranty
+                </p>
+                <div class="hero-actions">
+                    <a href="#" class="btn-primary-v2"><i class="fas fa-phone-alt"></i> Call Now: +971 XX XXX XXXX</a>
+                    <a href="#" class="btn-whatsapp-v2"><i class="fab fa-whatsapp"></i> Get Free Quote on WhatsApp</a>
+                    <a href="#" class="btn-outline-v2"><i class="fas fa-calendar-check"></i> Book Free Inspection</a>
+                </div>
+                <div class="trust-badges">
+                    <div class="badge"><i class="fas fa-check-circle"></i> Dubai Municipality Approved</div>
+                    <div class="badge"><i class="fas fa-check-circle"></i> Licensed & Insured</div>
+                    <div class="badge"><i class="fas fa-check-circle"></i> 10-Year Warranty</div>
+                    <div class="badge"><i class="fas fa-check-circle"></i> Eco-Friendly Paints</div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><span class="stat-number">1200</span>+<span class="stat-label">Dubai Projects</span></div>
+                    <div class="stat"><span class="stat-number">10</span>+<span class="stat-label">Years in UAE</span></div>
+                    <div class="stat"><span class="stat-number">4.9</span>&#9733;<span class="stat-label">Google Rating</span></div>
+                    <div class="stat"><span class="stat-number">100</span>%<span class="stat-label">Satisfaction</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services-v2">
+            <div class="container-v2">
+                <div class="section-header">
+                    <span class="section-tag">What We Do</span>
+                    <h2>Complete Painting Solutions for Every <span class="gradient-text">Dubai Property</span></h2>
+                    <p>Whether it's a luxury villa in Emirates Hills, a modern apartment in Dubai Marina, or a commercial office in Business Bay — we deliver flawless finishes every time.</p>
+                </div>
+                <div class="services-showcase">
+                    <div class="service-item">
+                        <div class="service-icon-wrap"><i class="fas fa-home"></i></div>
+                        <div class="service-content">
+                            <h3>Villa Painting Dubai</h3>
+                            <p>Complete interior & exterior painting for villas and townhouses. We handle everything from color consultation to final cleanup.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Full Villa Interior Painting</li>
+                                <li><i class="fas fa-check"></i> Exterior Weather-Resistant Coating</li>
+                                <li><i class="fas fa-check"></i> Driveway & Boundary Wall</li>
+                            </ul>
+                            <p class="price-tag">Starting from <strong>AED 12/sq.ft</strong></p>
+                            <a href="#" class="card-link">Get Villa Quote <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="service-number">01</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon-wrap"><i class="fas fa-building"></i></div>
+                        <div class="service-content">
+                            <h3>Apartment Painting Dubai</h3>
+                            <p>Fast, clean apartment painting with minimal disruption. We work around your schedule and leave no mess behind.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 1BHK / 2BHK / 3BHK Specialists</li>
+                                <li><i class="fas fa-check"></i> Weekend & Evening Slots</li>
+                                <li><i class="fas fa-check"></i> Furniture Protection & Cleanup</li>
+                            </ul>
+                            <p class="price-tag">Starting from <strong>AED 800 (Studio)</strong></p>
+                            <a href="#" class="card-link">Get Apartment Quote <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="service-number">02</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon-wrap"><i class="fas fa-briefcase"></i></div>
+                        <div class="service-content">
+                            <h3>Commercial & Office Painting</h3>
+                            <p>Professional painting for offices, retail stores, restaurants, and warehouses. After-hours work available.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Office & Workspace Painting</li>
+                                <li><i class="fas fa-check"></i> Retail Store & Showroom</li>
+                                <li><i class="fas fa-check"></i> Restaurant & Cafe Painting</li>
+                            </ul>
+                            <a href="#" class="card-link">Request Commercial Quote <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="service-number">03</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-v2">
+            <div class="container-v2">
+                <div class="section-header">
+                    <span class="section-tag">Reviews</span>
+                    <h2>What Dubai Property Owners <span class="gradient-text">Say</span></h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"They painted our 4BHK villa in Arabian Ranches. The team was incredibly professional, finished in 6 days, and the finish is absolutely flawless. Best painters in Dubai!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <h4>Sarah Al Maktoum</h4>
+                                <span>Villa Owner, Arabian Ranches</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Got 3 apartments painted in Dubai Marina before renting them out. Fast, clean, and very reasonably priced. They even helped with color selection."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <h4>Ahmed Khan</h4>
+                                <span>Property Investor, Dubai Marina</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"We hired them for our restaurant in JBR. They worked after hours so we didn't lose any business. The decorative texture finish looks amazing!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-user"></i></div>
+                            <div class="author-info">
+                                <h4>Priya Nair</h4>
+                                <span>Restaurant Owner, JBR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="google-reviews">
+                    <div class="reviews-score">4.9/5 on Google</div>
+                    <p>Based on 230+ Reviews</p>
+                    <a href="#" class="reviews-link">Read All Reviews <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-v2">
+            <div class="container-v2">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="#" class="logo">
+                            <span class="logo-icon"><i class="fas fa-paintbrush"></i></span>
+                            <span class="logo-text">YOUR COMPANY NAME</span>
+                        </a>
+                        <p class="footer-tagline">LLC | Dubai Municipality Approved</p>
+                        <div class="footer-license"><p><strong>Trade License #:</strong> XXXXXX</p></div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-google"></i></a>
+                            <a href="#"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <a href="#">Home</a>
+                        <a href="#">Services</a>
+                        <a href="#">Areas We Serve</a>
+                        <a href="#">Pricing</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                    <div class="footer-contact">
+                        <h4>Contact Us</h4>
+                        <a href="#"><i class="fas fa-phone"></i> +971 XX XXX XXXX</a>
+                        <a href="#"><i class="fab fa-whatsapp"></i> +971 XX XXX XXXX</a>
+                        <a href="#"><i class="fas fa-envelope"></i> info@yourcompany.ae</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 [Your Company Name] LLC. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const themes = {
+            a: {
+                name: 'Royal Blue + Gold',
+                primary: '#1E3A5F', primaryDark: '#152C4A', secondary: '#0F2440',
+                accent: '#F59E0B', accentLight: '#FCD34D',
+                gradient1: 'linear-gradient(135deg, #1E3A5F 0%, #152C4A 100%)',
+                gradient2: 'linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%)',
+                gradient3: 'linear-gradient(135deg, #1E3A5F 0%, #F59E0B 100%)',
+                gradient4: 'linear-gradient(135deg, #152C4A 0%, #1E3A5F 100%)',
+                bgLight: '#f0f4f8'
+            },
+            b: {
+                name: 'Emerald Green',
+                primary: '#059669', primaryDark: '#047857', secondary: '#064E3B',
+                accent: '#34D399', accentLight: '#A7F3D0',
+                gradient1: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
+                gradient2: 'linear-gradient(135deg, #34D399 0%, #A7F3D0 100%)',
+                gradient3: 'linear-gradient(135deg, #059669 0%, #34D399 100%)',
+                gradient4: 'linear-gradient(135deg, #047857 0%, #059669 100%)',
+                bgLight: '#f0fdf4'
+            },
+            c: {
+                name: 'Dark Purple + Gold',
+                primary: '#581C87', primaryDark: '#4C1D95', secondary: '#3B0764',
+                accent: '#F59E0B', accentLight: '#FCD34D',
+                gradient1: 'linear-gradient(135deg, #581C87 0%, #4C1D95 100%)',
+                gradient2: 'linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%)',
+                gradient3: 'linear-gradient(135deg, #581C87 0%, #F59E0B 100%)',
+                gradient4: 'linear-gradient(135deg, #4C1D95 0%, #581C87 100%)',
+                bgLight: '#faf5ff'
+            },
+            d: {
+                name: 'Teal + Orange',
+                primary: '#0D9488', primaryDark: '#0F766E', secondary: '#134E4A',
+                accent: '#F97316', accentLight: '#FDBA74',
+                gradient1: 'linear-gradient(135deg, #0D9488 0%, #0F766E 100%)',
+                gradient2: 'linear-gradient(135deg, #F97316 0%, #FDBA74 100%)',
+                gradient3: 'linear-gradient(135deg, #0D9488 0%, #F97316 100%)',
+                gradient4: 'linear-gradient(135deg, #0F766E 0%, #0D9488 100%)',
+                bgLight: '#f0fdfa'
+            },
+            e: {
+                name: 'Deep Red + Gold',
+                primary: '#B91C1C', primaryDark: '#991B1B', secondary: '#7F1D1D',
+                accent: '#F59E0B', accentLight: '#FCD34D',
+                gradient1: 'linear-gradient(135deg, #B91C1C 0%, #991B1B 100%)',
+                gradient2: 'linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%)',
+                gradient3: 'linear-gradient(135deg, #B91C1C 0%, #F59E0B 100%)',
+                gradient4: 'linear-gradient(135deg, #991B1B 0%, #B91C1C 100%)',
+                bgLight: '#fef2f2'
+            }
+        };
+
+        let currentTheme = 'a';
+
+        function setTheme(key) {
+            currentTheme = key;
+            const t = themes[key];
+            const r = document.documentElement.style;
+            r.setProperty('--primary', t.primary);
+            r.setProperty('--primary-dark', t.primaryDark);
+            r.setProperty('--secondary', t.secondary);
+            r.setProperty('--accent', t.accent);
+            r.setProperty('--accent-light', t.accentLight);
+            r.setProperty('--gradient-1', t.gradient1);
+            r.setProperty('--gradient-2', t.gradient2);
+            r.setProperty('--gradient-3', t.gradient3);
+            r.setProperty('--gradient-4', t.gradient4);
+            r.setProperty('--bg-light', t.bgLight);
+
+            document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`[data-theme="${key}"]`).classList.add('active');
+        }
+
+        function applyTheme() {
+            const t = themes[currentTheme];
+            const cssVars = `
+:root {
+    --primary: ${t.primary};
+    --primary-dark: ${t.primaryDark};
+    --secondary: ${t.secondary};
+    --accent: ${t.accent};
+    --accent-light: ${t.accentLight};
+    --whatsapp: #25D366;
+    --gradient-1: ${t.gradient1};
+    --gradient-2: ${t.gradient2};
+    --gradient-3: ${t.gradient3};
+    --gradient-4: ${t.gradient4};
+    --text-primary: #1a1a2e;
+    --text-secondary: #6c757d;
+    --bg-light: ${t.bgLight};
+    --white: #ffffff;
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+    --shadow-md: 0 10px 40px rgba(0,0,0,0.12);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}`;
+            navigator.clipboard.writeText(cssVars).then(() => {
+                alert(`Theme "${t.name}" CSS variables copied to clipboard!\n\nPaste them into styles.css :root to apply.`);
+            });
+        }
+
+        setTheme('a');
+    </script>
+</body>
+</html>
