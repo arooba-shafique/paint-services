@@ -509,15 +509,10 @@ body {
 .footer-brand { text-align: center; }
 .footer-brand .logo { margin-bottom: 15px; justify-content: center; }
 .footer-brand .logo-text { color: var(--white); }
-.footer-tagline { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 15px; }
-.footer-license { margin-bottom: 12px; }
-.footer-license p { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
-.footer-address { margin-bottom: 10px; }
-.footer-address p { color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: flex-start; gap: 8px; }
-.footer-hours { margin-bottom: 10px; }
-.footer-hours p { color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
-.footer-areas-served { margin-bottom: 20px; }
-.footer-areas-served p { color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+.footer-info { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.footer-info p { color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.footer-tagline { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+.footer-address, .footer-hours, .footer-areas-served { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
 .social-links { display: flex; gap: 10px; }
 .social-links a {
     width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%;
@@ -725,10 +720,8 @@ body {
     .urgency-badge { font-size: 0.85rem; padding: 12px 20px; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 20px; }
     .footer-brand .logo { justify-content: center; }
-    .footer-brand .footer-address p, .footer-brand .footer-hours p, .footer-brand .footer-areas-served p { justify-content: center; }
     .footer-links h4, .footer-contact h4 { margin-top: 15px; margin-bottom: 10px; }
     .social-links { justify-content: center; }
-    .footer-address p, .footer-hours p, .footer-areas-served p { justify-content: center; }
     .exit-buttons { flex-direction: column; }
     .whatsapp-float-v2 { display: none !important; }
     .back-to-top { bottom: 90px; right: 20px; width: 45px; height: 45px; }
