@@ -127,16 +127,8 @@ const showExitPopup = () => {
     }
 };
 
-// Desktop: mouse leaves viewport from top
-document.addEventListener('mouseout', (e) => {
-    if (e.clientY < 0) showExitPopup();
-});
-
-// Mobile: show after scrolling 50% of page
-window.addEventListener('scroll', () => {
-    const scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
-    if (scrollPercent > 0.5) showExitPopup();
-});
+// Show immediately on page load
+setTimeout(() => showExitPopup(), 1000);
 
 if (exitOverlay) exitOverlay.addEventListener('click', () => exitPopup.classList.remove('active'));
 if (exitClose) exitClose.addEventListener('click', () => exitPopup.classList.remove('active'));
