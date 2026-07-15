@@ -157,22 +157,6 @@ if (whatsappFloat) {
     }, 4000);
 }
 
-// Form Submission
-const quoteForm = document.getElementById('quoteForm');
-if (quoteForm) {
-    quoteForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const submitBtn = quoteForm.querySelector('.submit-btn');
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Quote Requested!';
-        submitBtn.style.background = '#25D366';
-        setTimeout(() => {
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Get My Free Quote Now';
-            submitBtn.style.background = '';
-            quoteForm.reset();
-        }, 3000);
-    });
-}
-
 // Keyboard Navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
