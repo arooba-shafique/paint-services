@@ -484,7 +484,7 @@ body {
 .footer-brand .logo-text { color: var(--white); }
 .footer-info { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; padding-top: 28px; }
 .footer-info p { color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-start; gap: 8px; }
-.footer-tagline { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+.footer-tagline { color: rgba(255,255,255,0.7); font-size: 0.9rem; font-weight: 700; }
 .footer-address, .footer-hours, .footer-areas-served { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
 .social-links { display: flex; gap: 10px; }
 .social-links a {
