@@ -117,7 +117,7 @@ body {
     display: flex; align-items: center; justify-content: space-between;
 }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.logo-img { height: 75px; width: auto; }
+.logo-img { height: 85px; width: auto; }
 .logo-icon {
     width: 45px; height: 45px; background: var(--gradient-1);
     border-radius: 12px; display: flex; align-items: center;
