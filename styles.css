@@ -482,7 +482,7 @@ body {
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 30px; margin-bottom: 50px; }
 .footer-brand { text-align: left; padding-top: 10px; }
 .footer-brand .logo-text { color: var(--white); }
-.footer-info { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.footer-info { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; padding-top: 28px; }
 .footer-info p { color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-start; gap: 8px; }
 .footer-tagline { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
 .footer-address, .footer-hours, .footer-areas-served { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
