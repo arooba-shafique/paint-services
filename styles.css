@@ -359,7 +359,7 @@ body {
     background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     color: var(--white);
 }
-.gallery-caption h4 { font-size: 0.95rem; margin-bottom: 3px; }
+.gallery-caption h3 { font-size: 0.95rem; margin-bottom: 3px; }
 .gallery-caption span { font-size: 0.8rem; opacity: 0.8; }
 
 /* Process */
@@ -437,7 +437,7 @@ body {
     padding: 20px 25px; cursor: pointer; transition: var(--transition);
 }
 .faq-question:hover { background: var(--bg-light); }
-.faq-question h4 { font-size: 1rem; font-weight: 600; }
+.faq-question h3 { font-size: 1rem; font-weight: 600; }
 .faq-question i { color: var(--accent); transition: var(--transition); }
 .faq-item.active .faq-question i { transform: rotate(180deg); }
 .faq-answer { padding: 0 25px 20px; display: none; }
@@ -493,7 +493,7 @@ body {
     text-decoration: none; transition: var(--transition);
 }
 .social-links a:hover { background: var(--accent); transform: translateY(-3px); }
-.footer-links h4, .footer-contact h4 { font-size: 1.1rem; margin-bottom: 12px; margin-top: 20px; }
+.footer-links h3, .footer-contact h3 { font-size: 1.1rem; margin-bottom: 12px; margin-top: 20px; }
 .footer-links a, .footer-contact a {
     display: block; color: rgba(255,255,255,0.7); text-decoration: none;
     margin-bottom: 4px; transition: var(--transition); font-size: 0.9rem;
@@ -689,7 +689,7 @@ body {
     .urgency-badge { font-size: 0.85rem; padding: 12px 20px; }
     .footer-grid { grid-template-columns: 1fr; text-align: left; gap: 20px; }
     .footer-brand .logo { justify-content: flex-start; }
-    .footer-links h4, .footer-contact h4 { margin-top: 15px; margin-bottom: 10px; }
+    .footer-links h3, .footer-contact h3 { margin-top: 15px; margin-bottom: 10px; }
     .social-links { justify-content: flex-start; }
     .exit-buttons { flex-direction: column; }
     .whatsapp-float-v2 { display: none !important; }
@@ -699,7 +699,7 @@ body {
     .brand-item i { font-size: 1.5rem; }
     .brand-item span { font-size: 0.8rem; }
     .faq-question { padding: 15px 20px; }
-    .faq-question h4 { font-size: 0.9rem; }
+    .faq-question h3 { font-size: 0.9rem; }
     .faq-answer { padding: 0 20px 15px; }
     .faq-answer p { font-size: 0.9rem; }
 }
@@ -722,7 +722,7 @@ body {
     .cta-content > p { font-size: 0.95rem; }
     .urgency-badge { font-size: 0.8rem; padding: 10px 15px; flex-direction: column; text-align: center; }
     .contact-info h2 { font-size: 1.5rem; }
-    .footer-links h4, .footer-contact h4 { font-size: 1rem; margin-bottom: 15px; }
+    .footer-links h3, .footer-contact h3 { font-size: 1rem; margin-bottom: 15px; }
     .popup-content { width: 95%; }
     .exit-content { width: 95%; }
     .paint-drip { gap: 6px; }
