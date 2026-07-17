@@ -4,7 +4,7 @@
 
 // Preloader
 window.addEventListener('load', () => {
-    setTimeout(() => document.querySelector('.preloader').classList.add('hidden'), 1500);
+    setTimeout(() => document.querySelector('.preloader').classList.add('hidden'), 800);
 });
 
 // Navbar Scroll
@@ -109,8 +109,8 @@ const showExitPopup = () => {
     }
 };
 
-// Show immediately on page load
-setTimeout(() => showExitPopup(), 1000);
+// Show on page load with delay
+setTimeout(() => showExitPopup(), 5000);
 
 if (exitOverlay) exitOverlay.addEventListener('click', () => exitPopup.classList.remove('active'));
 if (exitClose) exitClose.addEventListener('click', () => exitPopup.classList.remove('active'));

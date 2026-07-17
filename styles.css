@@ -16,13 +16,13 @@
     --gradient-3: linear-gradient(135deg, #1E3A5F 0%, #F59E0B 100%);
     --gradient-4: linear-gradient(135deg, #152C4A 0%, #1E3A5F 100%);
     --text-primary: #1a1a2e;
-    --text-secondary: #6c757d;
+    --text-secondary: #495057;
     --bg-light: #f0f4f8;
     --white: #ffffff;
     --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
     --shadow-md: 0 10px 40px rgba(0,0,0,0.12);
     --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.3s ease;
 }
 
 html { scroll-behavior: smooth; }
