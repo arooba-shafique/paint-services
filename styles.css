@@ -213,7 +213,7 @@ body {
     -webkit-text-fill-color: transparent; background-clip: text;
 }
 .hero-subtitle {
-    font-size: 1.15rem; color: rgba(255,255,255,0.7); line-height: 1.8;
+    font-size: 1.15rem; color: rgba(255,255,255,0.85); line-height: 1.8;
     margin-bottom: 35px; animation: fadeInUp 0.8s ease 0.4s both;
 }
 .hero-actions {
@@ -244,13 +244,13 @@ body {
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 .trust-badges { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; animation: fadeInUp 0.8s ease 0.7s both; }
-.badge { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.1); padding: 8px 14px; border-radius: 20px; }
+.badge { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.15); padding: 8px 14px; border-radius: 20px; }
 .badge i { color: var(--accent-light); }
 
 .hero-stats { display: flex; gap: 40px; animation: fadeInUp 0.8s ease 0.8s both; }
 .stat { text-align: center; }
 .stat-number { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--accent-light); }
-.stat-label { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 5px; }
+.stat-label { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-top: 5px; }
 
 .hero-visual { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); z-index: 2; }
 .paint-card {
@@ -396,7 +396,7 @@ body {
     width: 45px; height: 45px; background: var(--gradient-3); border-radius: 50%;
     display: flex; align-items: center; justify-content: center; color: var(--white);
 }
-.author-info h4 { font-size: 0.95rem; }
+.author-info h4, .author-info .author-name { font-size: 0.95rem; margin: 0; }
 .author-info span { color: var(--text-secondary); font-size: 0.8rem; }
 .google-reviews { text-align: center; }
 .reviews-score { font-size: 1.5rem; font-weight: 700; color: var(--accent); margin-bottom: 5px; }
@@ -463,7 +463,7 @@ body {
 /* Final CTA */
 .final-cta { padding: 80px 0; background: var(--secondary); text-align: center; }
 .cta-content h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--white); margin-bottom: 15px; }
-.cta-content > p { color: rgba(255,255,255,0.7); margin-bottom: 30px; font-size: 1.1rem; }
+.cta-content > p { color: rgba(255,255,255,0.85); margin-bottom: 30px; font-size: 1.1rem; }
 .cta-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; }
 .cta-buttons .btn-primary-v2 { background: var(--accent); }
 .cta-buttons .btn-whatsapp-v2 { background: var(--whatsapp); }
@@ -483,9 +483,9 @@ body {
 .footer-brand { text-align: left; padding-top: 10px; }
 .footer-brand .logo-text { color: var(--white); }
 .footer-info { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; padding-top: 28px; }
-.footer-info p { color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-start; gap: 8px; }
-.footer-tagline { color: rgba(255,255,255,0.7); font-size: 0.9rem; font-weight: 700; }
-.footer-address, .footer-hours, .footer-areas-served { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+.footer-info p { color: rgba(255,255,255,0.8); font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-start; gap: 8px; }
+.footer-tagline { color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 700; }
+.footer-address, .footer-hours, .footer-areas-served { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
 .social-links { display: flex; gap: 10px; }
 .social-links a {
     width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%;
@@ -495,15 +495,15 @@ body {
 .social-links a:hover { background: var(--accent); transform: translateY(-3px); }
 .footer-links h3, .footer-contact h3 { font-size: 1.1rem; margin-bottom: 12px; margin-top: 20px; }
 .footer-links a, .footer-contact a {
-    display: block; color: rgba(255,255,255,0.7); text-decoration: none;
+    display: block; color: rgba(255,255,255,0.8); text-decoration: none;
     margin-bottom: 4px; transition: var(--transition); font-size: 0.9rem;
 }
 .footer-links a:hover, .footer-contact a:hover { color: var(--accent); }
-.footer-contact p { color: rgba(255,255,255,0.7); font-size: 0.9rem; display: flex; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.footer-contact p { color: rgba(255,255,255,0.8); font-size: 0.9rem; display: flex; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
 .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); }
-.footer-bottom p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 10px; }
+.footer-bottom p { color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-bottom: 10px; }
 .footer-bottom-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-.footer-bottom-links a { color: rgba(255,255,255,0.6); font-size: 0.8rem; text-decoration: none; transition: var(--transition); }
+.footer-bottom-links a { color: rgba(255,255,255,0.8); font-size: 0.8rem; text-decoration: none; transition: var(--transition); }
 .footer-bottom-links a:hover { color: var(--accent); }
 
 /* WhatsApp Popup */

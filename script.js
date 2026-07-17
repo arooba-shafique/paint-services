@@ -94,26 +94,8 @@ document.querySelectorAll('.faq-question').forEach(question => {
 });
 
 // WhatsApp Popup
-const whatsappPopup = document.getElementById('whatsappPopup');
-const popupOverlay = document.getElementById('popupOverlay');
-const popupClose = document.getElementById('popupClose');
 const exitPopup = document.getElementById('exitPopup');
 let popupShown = false;
-
-if (whatsappPopup) {
-    setTimeout(() => {
-        if (!popupShown) {
-            whatsappPopup.classList.add('active');
-            popupShown = true;
-        }
-    }, 3000);
-}
-
-const closePopup = () => {
-    if (whatsappPopup) whatsappPopup.classList.remove('active');
-};
-if (popupOverlay) popupOverlay.addEventListener('click', closePopup);
-if (popupClose) popupClose.addEventListener('click', closePopup);
 
 // Exit Intent Popup
 const exitOverlay = document.getElementById('exitOverlay');
@@ -121,7 +103,7 @@ const exitClose = document.getElementById('exitClose');
 let exitShown = false;
 
 const showExitPopup = () => {
-    if (exitPopup && !exitShown && !popupShown) {
+    if (exitPopup && !exitShown) {
         exitPopup.classList.add('active');
         exitShown = true;
     }
@@ -152,7 +134,6 @@ if (whatsappFloat) {
 // Keyboard Navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        if (whatsappPopup) whatsappPopup.classList.remove('active');
         if (exitPopup) exitPopup.classList.remove('active');
     }
 });
@@ -162,6 +143,3 @@ const copyrightYear = document.querySelector('.footer-bottom p');
 if (copyrightYear) {
     copyrightYear.innerHTML = copyrightYear.innerHTML.replace('2024', new Date().getFullYear());
 }
-
-console.log('%c🎨 Dubai Paint Services', 'font-size: 24px; font-weight: bold; color: #1E3A5F;');
-console.log('%cDubai\'s Most Trusted Painting Service', 'font-size: 14px; color: #666;');
