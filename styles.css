@@ -568,6 +568,8 @@ body {
 .exit-body p { margin-bottom: 10px; color: var(--text-secondary); }
 .exit-body strong { color: var(--accent); font-size: 1.2rem; }
 .exit-buttons { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
+.exit-buttons .exit-btn-whatsapp { padding: 18px 36px; font-size: 1.05rem; }
+.exit-buttons .exit-btn-call { padding: 14px 24px; font-size: 0.9rem; }
 
 /* WhatsApp Float */
 .whatsapp-float-v2 {
