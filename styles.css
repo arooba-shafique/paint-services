@@ -637,8 +637,8 @@ body {
         max-width: 320px; 
         justify-content: center;
     }
-    .hero-actions .hero-btn-whatsapp { padding: 18px 30px; font-size: 1.05rem; }
-    .hero-actions .hero-btn-call { padding: 10px 20px; font-size: 0.8rem; }
+    .hero-actions .hero-btn-whatsapp { width: 100%; padding: 18px 30px; font-size: 1.05rem; text-align: center; }
+    .hero-actions .hero-btn-call { width: auto; padding: 10px 24px; font-size: 0.8rem; margin: 0 auto; }
     .trust-badges { gap: 10px; }
     .badge { font-size: 0.7rem; padding: 6px 10px; }
     .hero-stats { 
@@ -677,8 +677,8 @@ body {
     .footer-links h3, .footer-contact h3 { margin-top: 15px; margin-bottom: 10px; }
     .social-links { justify-content: flex-start; }
     .exit-buttons { flex-direction: column; }
-    .exit-buttons .exit-btn-whatsapp { width: 100%; padding: 16px 30px; font-size: 1rem; }
-    .exit-buttons .exit-btn-call { width: 100%; padding: 10px 20px; font-size: 0.8rem; }
+    .exit-buttons .exit-btn-whatsapp { width: 100%; padding: 16px 30px; font-size: 1rem; text-align: center; }
+    .exit-buttons .exit-btn-call { width: auto; padding: 10px 24px; font-size: 0.8rem; margin: 0 auto; }
     .whatsapp-float-v2 { display: none !important; }
     .back-to-top { bottom: 90px; right: 20px; width: 45px; height: 45px; }
     .marquee-content span { font-size: 0.75rem; letter-spacing: 1px; }
