@@ -104,8 +104,12 @@ const showExitPopup = () => {
     }
 };
 
-// Show on page load immediately
-setTimeout(() => showExitPopup(), 0);
+// Show on page load after first paint
+if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => showExitPopup());
+} else {
+    setTimeout(() => showExitPopup(), 1500);
+}
 
 if (exitOverlay) exitOverlay.addEventListener('click', () => exitPopup.classList.remove('active'));
 if (exitClose) exitClose.addEventListener('click', () => exitPopup.classList.remove('active'));
