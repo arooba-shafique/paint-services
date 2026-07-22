@@ -3,5 +3,13 @@
     { "source": "/office", "destination": "/office.html" },
     { "source": "/apartment", "destination": "/apartment.html" },
     { "source": "/furniture", "destination": "/furniture.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(office|apartment|furniture)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
   ]
 }
