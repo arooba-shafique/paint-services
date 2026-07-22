@@ -2,11 +2,6 @@
    DUBAI PAINT SERVICES - LANDING PAGE V2
    ============================================ */
 
-// Preloader
-window.addEventListener('load', () => {
-    setTimeout(() => document.querySelector('.preloader').classList.add('hidden'), 800);
-});
-
 // Navbar Scroll
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {

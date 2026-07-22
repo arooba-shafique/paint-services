@@ -84,23 +84,6 @@ body {
     .footer-links a, .footer-contact a { padding: 8px 0; }
 }
 
-/* Preloader */
-.preloader {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: var(--white); display: flex; flex-direction: column;
-    align-items: center; justify-content: center; z-index: 99999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-.preloader.hidden { opacity: 0; visibility: hidden; }
-.paint-drip { display: flex; gap: 10px; margin-bottom: 20px; }
-.drip {
-    width: 15px; height: 60px; background: var(--gradient-1);
-    border-radius: 0 0 50% 50%; animation: drip 1.5s ease-in-out infinite;
-}
-.drip:nth-child(2) { background: var(--gradient-2); animation-delay: 0.2s; }
-.drip:nth-child(3) { background: var(--gradient-3); animation-delay: 0.4s; }
-@keyframes drip { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.5); } }
-
 /* Navigation */
 .navbar {
     position: fixed; top: 0; left: 0; width: 100%; height: 80px; padding: 0;
