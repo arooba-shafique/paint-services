@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/office", "destination": "/office.html" },
+    { "source": "/apartment", "destination": "/apartment.html" },
+    { "source": "/furniture", "destination": "/furniture.html" }
+  ]
+}
