@@ -1,30 +1,58 @@
 # Paint Services
 
-A professional client project for a paint services business in Dubai, built with HTML, CSS, and JavaScript.
+A professional website for a paint services business in Dubai, built with HTML, CSS, and JavaScript.
+
+## Live Demo
+
+[royalpainterdubai.com](https://royalpainterdubai.com/)
 
 ## Features
 
-- Modern and responsive design
-- Service listings with details
-- Theme preview functionality
-- Mobile-friendly layout
+- Modern, fully responsive design
+- Multiple service pages (interior, exterior, apartment, office, furniture)
+- Mobile-friendly with sticky CTA bar
+- WhatsApp and phone call integration
+- FAQ accordion section
+- Project gallery
+- SEO optimized with structured data
+
+## Services
+
+- Interior Wall Painting
+- Exterior House and Villa Painting
+- Office and Commercial Painting
+- Studio, 1BHK, 2BHK and 3BHK Painting
+- Spray Painting
+- Door Polish and Wood Finishing
+- Furniture and Kitchen Cabinet Painting
+- Wall Crack Repair and Surface Preparation
+- Waterproofing and Damp Repair
+- Post-Painting Deep Cleaning
 
 ## Tech Stack
 
-- **HTML5** – Structure and layout
-- **CSS3** – Styling and responsive design
-- **JavaScript** – Interactivity and theme preview
+| Technology | Usage |
+|-----------|-------|
+| HTML5 | Structure and layout |
+| CSS3 | Styling and responsive design |
+| JavaScript | Interactivity and animations |
+| Font Awesome | Icons |
 
 ## Project Structure
 
 ```
 paint-services/
-├── images/
-├── index.html
-├── logo.png
-├── script.js
-├── styles.css
-└── theme-preview.html
+├── index.html          # Main landing page
+├── apartment.html      # Apartment painting service
+├── office.html         # Office and commercial painting
+├── furniture.html      # Furniture and cabinet painting
+├── styles.css          # Full stylesheet
+├── styles.min.css      # Minified stylesheet
+├── script.js           # JavaScript
+├── script.min.js       # Minified JavaScript
+├── logo.webp           # Company logo
+├── images/             # Service images
+└── vercel.json         # Deployment config
 ```
 
 ## How to Run
@@ -35,7 +63,3 @@ paint-services/
    ```
 
 2. Open `index.html` in your browser.
-
-## Live Demo
-
-[royalpainterdubai.com](https://royalpainterdubai.com/)
