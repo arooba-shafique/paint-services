@@ -97,7 +97,7 @@ document.querySelectorAll('.faq-question').forEach(question => {
 const whatsappPopup = document.getElementById('whatsappPopup');
 const popupOverlay = document.getElementById('popupOverlay');
 const popupClose = document.getElementById('popupClose');
-const exitPopup = document.getElementById('exitPopup');
+
 let popupShown = false;
 
 if (whatsappPopup) {
@@ -114,32 +114,6 @@ const closePopup = () => {
 };
 if (popupOverlay) popupOverlay.addEventListener('click', closePopup);
 if (popupClose) popupClose.addEventListener('click', closePopup);
-
-// Exit Intent Popup
-const exitOverlay = document.getElementById('exitOverlay');
-const exitClose = document.getElementById('exitClose');
-let exitShown = false;
-
-const showExitPopup = () => {
-    if (exitPopup && !exitShown && !popupShown) {
-        exitPopup.classList.add('active');
-        exitShown = true;
-    }
-};
-
-// Desktop: mouse leaves viewport from top
-document.addEventListener('mouseout', (e) => {
-    if (e.clientY < 0) showExitPopup();
-});
-
-// Mobile: show after scrolling 50% of page
-window.addEventListener('scroll', () => {
-    const scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
-    if (scrollPercent > 0.5) showExitPopup();
-});
-
-if (exitOverlay) exitOverlay.addEventListener('click', () => exitPopup.classList.remove('active'));
-if (exitClose) exitClose.addEventListener('click', () => exitPopup.classList.remove('active'));
 
 // Back to Top
 const backToTop = document.getElementById('backToTop');
@@ -177,7 +151,6 @@ if (quoteForm) {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         if (whatsappPopup) whatsappPopup.classList.remove('active');
-        if (exitPopup) exitPopup.classList.remove('active');
     }
 });
 

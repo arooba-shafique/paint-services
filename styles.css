@@ -569,35 +569,6 @@ body {
 }
 .popup-btn:hover { background: #20BD5A; transform: translateY(-2px); }
 
-/* Exit Popup */
-.exit-popup {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 9998; display: flex; align-items: center; justify-content: center;
-    opacity: 0; visibility: hidden; transition: all 0.3s ease;
-}
-.exit-popup.active { opacity: 1; visibility: visible; }
-.exit-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); }
-.exit-content {
-    position: relative; width: 450px; max-width: 90%; background: var(--white);
-    border-radius: 20px; overflow: hidden; transform: scale(0.8);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.exit-popup.active .exit-content { transform: scale(1); }
-.exit-close {
-    position: absolute; top: 15px; right: 15px; width: 35px; height: 35px;
-    background: rgba(0,0,0,0.1); border: none; border-radius: 50%; cursor: pointer;
-    display: flex; align-items: center; justify-content: center; z-index: 10;
-}
-.exit-header {
-    background: var(--gradient-1); padding: 40px 30px; text-align: center; color: var(--white);
-}
-.exit-header i { font-size: 3rem; margin-bottom: 15px; }
-.exit-header h3 { font-size: 1.5rem; }
-.exit-body { padding: 30px; text-align: center; }
-.exit-body p { margin-bottom: 10px; color: var(--text-secondary); }
-.exit-body strong { color: var(--accent); font-size: 1.2rem; }
-.exit-buttons { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
-
 /* WhatsApp Float */
 .whatsapp-float-v2 {
     position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp);
@@ -653,7 +624,6 @@ body {
     .cta-buttons { flex-direction: column; align-items: center; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .social-links { justify-content: center; }
-    .exit-buttons { flex-direction: column; }
     .whatsapp-float-v2 { display: none !important; }
 }
 @media (max-width: 480px) {
