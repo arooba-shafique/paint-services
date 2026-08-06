@@ -1,11 +1,6 @@
-/* ============================================
+﻿/* ============================================
    DUBAI PAINT SERVICES - LANDING PAGE V2
    ============================================ */
-
-// Preloader
-window.addEventListener('load', () => {
-    setTimeout(() => document.querySelector('.preloader').classList.add('hidden'), 1500);
-});
 
 // Navbar Scroll
 const navbar = document.querySelector('.navbar');
@@ -51,21 +46,7 @@ const counters = document.querySelectorAll('.stat-number');
 let counterStarted = false;
 const animateCounters = () => {
     counters.forEach(counter => {
-        const target = parseFloat(counter.getAttribute('data-count'));
-        const isDecimal = target % 1 !== 0;
-        const duration = 2000;
-        const increment = target / (duration / 16);
-        let current = 0;
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                counter.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = isDecimal ? target.toFixed(1) : target;
-            }
-        };
-        updateCounter();
+        counter.classList.add('counted');
     });
 };
 
@@ -131,22 +112,6 @@ if (whatsappFloat) {
     }, 4000);
 }
 
-// Form Submission
-const quoteForm = document.getElementById('quoteForm');
-if (quoteForm) {
-    quoteForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const submitBtn = quoteForm.querySelector('.submit-btn');
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Quote Requested!';
-        submitBtn.style.background = '#25D366';
-        setTimeout(() => {
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Get My Free Quote Now';
-            submitBtn.style.background = '';
-            quoteForm.reset();
-        }, 3000);
-    });
-}
-
 // Keyboard Navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -159,6 +124,3 @@ const copyrightYear = document.querySelector('.footer-bottom p');
 if (copyrightYear) {
     copyrightYear.innerHTML = copyrightYear.innerHTML.replace('2024', new Date().getFullYear());
 }
-
-console.log('%c🎨 Dubai Paint Services', 'font-size: 24px; font-weight: bold; color: #1E3A5F;');
-console.log('%cDubai\'s Most Trusted Painting Service', 'font-size: 14px; color: #666;');
