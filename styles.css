@@ -152,6 +152,7 @@ body {
 .hero-v2 {
     min-height: 100vh; display: flex; align-items: center; position: relative;
     overflow: hidden; background: linear-gradient(135deg, #1E3A5F 0%, #152C4A 60%, #0F2440 100%); padding: 120px 0 80px;
+    contain: layout style;
 }
 .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 .gradient-orb {
@@ -263,6 +264,7 @@ body {
 .marquee { display: flex; overflow: hidden; }
 .marquee-content {
     display: flex; gap: 40px; animation: marquee 25s linear infinite; white-space: nowrap;
+    will-change: transform;
 }
 .marquee-content span { color: var(--white); font-size: 0.9rem; font-weight: 600; letter-spacing: 2px; }
 .marquee-content .dot { color: var(--accent-light); }
